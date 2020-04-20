@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://fiammanda.github.io/log/</id>
     <title>Log</title>
-    <updated>2020-04-20T04:06:46.126Z</updated>
+    <updated>2020-04-20T04:09:10.404Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://fiammanda.github.io/log/"/>
+    <link rel="self" href="https://fiammanda.github.io/log/atom.xml"/>
     <subtitle>fiammanda</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://fiammanda.github.io/log/images/avatar.png</logo>
+    <icon>https://fiammanda.github.io/log/favicon.ico</icon>
     <rights>All rights reserved 2020, Log</rights>
     <entry>
         <title type="html"><![CDATA[将 Gridea 部署到 Gitee]]></title>
-        <id>http://localhost:4000/post/gridea-on-gitee/</id>
-        <link href="http://localhost:4000/post/gridea-on-gitee/">
+        <id>https://fiammanda.github.io/log/post/gridea-on-gitee/</id>
+        <link href="https://fiammanda.github.io/log/post/gridea-on-gitee/">
         </link>
         <updated>2020-04-20T05:46:34.000Z</updated>
         <summary type="html"><![CDATA[<p>部署到 Gitee 需要已经在 Github 上部署好的 Gridea 和一个 Gitee 账号（废话）。</p>
@@ -23,29 +23,29 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[近期本地和隔壁更新]]></title>
-        <id>http://localhost:4000/post/20200419/</id>
-        <link href="http://localhost:4000/post/20200419/">
+        <id>https://fiammanda.github.io/log/post/20200419/</id>
+        <link href="https://fiammanda.github.io/log/post/20200419/">
         </link>
         <updated>2020-04-18T16:09:05.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[今天的 Windows Spotlight 爱了并代了]]></title>
-        <id>http://localhost:4000/post/dubrovnik-croatia/</id>
-        <link href="http://localhost:4000/post/dubrovnik-croatia/">
+        <id>https://fiammanda.github.io/log/post/dubrovnik-croatia/</id>
+        <link href="https://fiammanda.github.io/log/post/dubrovnik-croatia/">
         </link>
         <updated>2020-04-17T09:47:20.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[图片管理]]></title>
-        <id>http://localhost:4000/post/image-management/</id>
-        <link href="http://localhost:4000/post/image-management/">
+        <id>https://fiammanda.github.io/log/post/image-management/</id>
+        <link href="https://fiammanda.github.io/log/post/image-management/">
         </link>
         <updated>2020-04-14T08:22:32.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Markdown Editor 踩坑记录]]></title>
-        <id>http://localhost:4000/post/markdown-editor-apps/</id>
-        <link href="http://localhost:4000/post/markdown-editor-apps/">
+        <id>https://fiammanda.github.io/log/post/markdown-editor-apps/</id>
+        <link href="https://fiammanda.github.io/log/post/markdown-editor-apps/">
         </link>
         <updated>2020-04-13T04:07:16.000Z</updated>
         <summary type="html"><![CDATA[<p>哼，还不都是用 <code>CodeMirror</code> 这个轮子造的。</p>
@@ -55,15 +55,15 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Valine 移除自带样式]]></title>
-        <id>http://localhost:4000/post/valine-remove-official-style/</id>
-        <link href="http://localhost:4000/post/valine-remove-official-style/">
+        <id>https://fiammanda.github.io/log/post/valine-remove-official-style/</id>
+        <link href="https://fiammanda.github.io/log/post/valine-remove-official-style/">
         </link>
         <updated>2020-04-08T11:48:01.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[基于 LeanCloud 的静态页面点击 / 点赞统计]]></title>
-        <id>http://localhost:4000/post/leancloud-like-for-static-site/</id>
-        <link href="http://localhost:4000/post/leancloud-like-for-static-site/">
+        <id>https://fiammanda.github.io/log/post/leancloud-like-for-static-site/</id>
+        <link href="https://fiammanda.github.io/log/post/leancloud-like-for-static-site/">
         </link>
         <updated>2020-04-01T07:16:24.000Z</updated>
         <summary type="html"><![CDATA[<p>依次为 <code>JavaScript</code> 和 <code>CSS</code> 代码。</p>
@@ -73,50 +73,50 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[jQuery 动画效果与 CSS transition 冲突]]></title>
-        <id>http://localhost:4000/post/jquery-animation-css-transition-confliction/</id>
-        <link href="http://localhost:4000/post/jquery-animation-css-transition-confliction/">
+        <id>https://fiammanda.github.io/log/post/jquery-animation-css-transition-confliction/</id>
+        <link href="https://fiammanda.github.io/log/post/jquery-animation-css-transition-confliction/">
         </link>
         <updated>2020-03-28T13:21:31.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[暴力清理 Git 历史]]></title>
-        <id>http://localhost:4000/post/clear-git-history/</id>
-        <link href="http://localhost:4000/post/clear-git-history/">
+        <id>https://fiammanda.github.io/log/post/clear-git-history/</id>
+        <link href="https://fiammanda.github.io/log/post/clear-git-history/">
         </link>
         <updated>2020-03-19T07:38:13.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mobile Safari 资源限制]]></title>
-        <id>http://localhost:4000/post/mobile-safari-resource-limit/</id>
-        <link href="http://localhost:4000/post/mobile-safari-resource-limit/">
+        <id>https://fiammanda.github.io/log/post/mobile-safari-resource-limit/</id>
+        <link href="https://fiammanda.github.io/log/post/mobile-safari-resource-limit/">
         </link>
         <updated>2020-02-26T01:23:13.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Link: RegExr]]></title>
-        <id>http://localhost:4000/post/link-regexr/</id>
-        <link href="http://localhost:4000/post/link-regexr/">
+        <id>https://fiammanda.github.io/log/post/link-regexr/</id>
+        <link href="https://fiammanda.github.io/log/post/link-regexr/">
         </link>
         <updated>2020-01-25T11:09:48.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[摘抄]]></title>
-        <id>http://localhost:4000/post/cite-20190615/</id>
-        <link href="http://localhost:4000/post/cite-20190615/">
+        <id>https://fiammanda.github.io/log/post/cite-20190615/</id>
+        <link href="https://fiammanda.github.io/log/post/cite-20190615/">
         </link>
         <updated>2019-06-15T05:24:49.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[放开那个女巫]]></title>
-        <id>http://localhost:4000/post/review-release-that-witch/</id>
-        <link href="http://localhost:4000/post/review-release-that-witch/">
+        <id>https://fiammanda.github.io/log/post/review-release-that-witch/</id>
+        <link href="https://fiammanda.github.io/log/post/review-release-that-witch/">
         </link>
         <updated>2018-11-21T05:24:03.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[CSS 中英文混排字体]]></title>
-        <id>http://localhost:4000/post/css-textsetting/</id>
-        <link href="http://localhost:4000/post/css-textsetting/">
+        <id>https://fiammanda.github.io/log/post/css-textsetting/</id>
+        <link href="https://fiammanda.github.io/log/post/css-textsetting/">
         </link>
         <updated>2018-04-30T04:07:16.000Z</updated>
     </entry>
