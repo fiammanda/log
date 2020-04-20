@@ -1,0 +1,958 @@
+:root {
+  --windowH: 100vh;
+  --cb100: 100%;
+  --cb95: 95%;
+  --cb90: 90%;
+  --cb80: 80%;
+  --cb60: 60%;
+  --cb35: 35%;
+  --cb20: 20%;
+}
+::selection {
+  background: rgba(0, 0, 0, 0.1);
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+  cursor: crosshair;
+  text-size-adjust: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font: 0.875rem/1.5 "Source Han Sans SC", "Noto Sans CJK SC", "HanHei SC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  text-align: justify;
+  color: #555;
+  background: #eee;
+  opacity: 1;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+input,
+textarea,
+button {
+  font: 0.875rem/1.5 "Source Han Sans SC", "Noto Sans CJK SC", "HanHei SC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  transition: all 0.5s ease;
+  transition-property: opacity, filter;
+}
+svg {
+  transition: fill 0.5s ease;
+}
+cite {
+  display: block;
+  text-align: right;
+}
+code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.75rem;
+}
+code:not([class]) {
+  padding: 0 0.125rem;
+  background: #eee;
+  border-radius: 1px;
+}
+a {
+  color: hsl(0, 0%, var(--cb35));
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+article section a {
+  box-shadow: inset 0 -0.5rem 0 #eee;
+}
+article section a:hover {
+  box-shadow: inset 0 -0.2rem 0 #ccc;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+h2 {
+  padding: 0.25rem 0;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #ccc;
+}
+p,
+pre,
+blockquote {
+  margin: 1em 0;
+}
+pre {
+  padding: 0.5em 0;
+  -webkit-tab-size: 4;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  background: #f9f9f9;
+  border-left: 1rem #f9f9f9 solid;
+  border-right: 1rem #f9f9f9 solid;
+  overflow-x: auto;
+}
+pre code {
+  display: block;
+}
+blockquote {
+  padding: 0.5em 0 0.5em 0.7em;
+  border-left: 0.3em solid #ccc;
+}
+blockquote p:first-child,
+blockquote p:last-child {
+  margin: 0;
+}
+ol,
+ul {
+  padding: 0 0 0 2em;
+}
+ul li {
+  position: relative;
+}
+ul li::marker {
+  color: transparent;
+}
+ul li::before {
+  content: "－";
+  position: absolute;
+  left: -1.5em;
+  width: 1.5em;
+}
+li,
+li p {
+  margin: 0.25em 0;
+}
+li p:first-child {
+  margin-top: 1em;
+}
+table {
+  display: block;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.125rem;
+  overflow-x: auto;
+}
+th,
+td {
+  padding: 0.5em;
+  font-weight: normal;
+  font-size: 0.875rem;
+  text-align: left;
+  box-sizing: content-box;
+}
+thead tr {
+  color: #fff;
+  background: #555;
+}
+tbody tr:nth-child(2n) {
+  background: #f5f5f5;
+}
+.wrap {
+  margin: 0 auto;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.wrap[data-load] {
+  opacity: 0;
+}
+.wrap header {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+.wrap header img {
+  margin: 0 1rem 0 -0.125rem;
+  width: 2rem;
+  height: 2rem;
+  filter: invert(0.3);
+}
+.wrap header h1 {
+  flex: 1 0 auto;
+  font-size: 1.25rem;
+  font-family: "Lobster Two", sans-serif;
+}
+.wrap header nav {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.wrap header nav div {
+  position: relative;
+  display: flex;
+  margin: 0 0 0 2rem;
+  line-height: 1;
+}
+.wrap header nav div::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 1rem;
+}
+.wrap header nav div a {
+  position: relative;
+  z-index: 4;
+}
+.wrap header nav div a svg {
+  width: 1rem;
+  height: 1rem;
+  fill: hsl(0, 0%, var(--cb35));
+}
+.wrap header nav div a:hover {
+  opacity: 0.75;
+}
+.wrap header nav div section {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 -4rem;
+  width: 8rem;
+  border-radius: 0.125rem;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(0.125rem);
+  backdrop-filter: blur(0.125rem);
+  transition: all 0.5s ease;
+  transition-property: margin, opacity;
+  z-index: 2;
+  pointer-events: none;
+}
+.wrap header nav div section span {
+  height: 1px;
+}
+.wrap header nav div section a {
+  padding: 0.5rem 0;
+  font-family: "Roboto", "Source Han Sans SC", "Noto Sans CJK SC", "HanHei SC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background: hsla(0, 0%, 100%, 0.8);
+}
+.wrap header nav div section a:hover {
+  color: #fff;
+  background: hsla(0, 0%, 20%, 0.8);
+}
+.wrap header nav div:hover section {
+  margin: 1.5rem 0 0 -4rem;
+  opacity: 1;
+  pointer-events: auto;
+}
+.wrap footer {
+  padding: 10rem 0 2rem;
+  font-size: 0.75rem;
+  font-family: "Roboto", sans-serif;
+  text-align: right;
+  color: #999;
+}
+.wrap footer svg {
+  margin: 0 0 0 0.125rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: #999;
+  vertical-align: -0.125rem;
+}
+.wrap footer .view::before,
+.wrap footer .like::before {
+  content: attr(data-current);
+}
+.layout-index {
+  height: 100%;
+}
+.layout-index .wrap {
+  height: 100%;
+  padding: 1rem;
+  max-width: 40rem;
+}
+.layout-index .wrap header {
+  display: block;
+  padding: 50% 0 0;
+  height: 100%;
+  text-align: center;
+}
+.layout-index .wrap header img {
+  margin: 0;
+  width: 4rem;
+  height: 4rem;
+}
+.layout-index .wrap header h1 {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+.layout-index .wrap header p {
+  margin: 0;
+  font-size: 1.125rem;
+  font-family: "Lobster Two", sans-serif;
+}
+.layout-index .wrap header nav {
+  margin: 2rem 0 0;
+}
+.layout-index .wrap header nav div {
+  margin: 0 1rem;
+}
+.layout-index .wrap main section {
+  margin: 0 0 10rem;
+  font-family: "Roboto", "Source Han Sans SC", "Noto Sans CJK SC", "HanHei SC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+.layout-index .wrap footer {
+  text-align: center;
+}
+.layout-archive .wrap {
+  padding: 1rem;
+  max-width: 100rem;
+}
+.layout-archive .wrap main article[data-load] {
+  opacity: 0;
+}
+.layout-archive .wrap main article[data-load="true"] {
+  opacity: 1;
+}
+.layout-archive .wrap main article {
+  width: 18rem;
+  background: #fff;
+  border-radius: 0.125rem;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transition-property: background, opacity;
+}
+.layout-archive .wrap main article .post-wrap {
+  padding: 1rem;
+}
+.layout-archive .wrap main article .post-wrap h1 {
+  text-align: left;
+}
+.layout-archive .wrap main article .post-wrap h2 {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+.layout-archive .wrap main article .post-wrap pre {
+  margin: 1rem -1rem;
+}
+.layout-archive .wrap main article .post-wrap > a:first-child {
+  display: block;
+}
+.layout-archive .wrap main article .post-wrap > div:last-child {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 0;
+  font-size: 0.75rem;
+  font-family: "Roboto", sans-serif;
+  color: #a3a3a3;
+}
+.layout-archive .wrap main article .post-wrap > div:last-child .more {
+  margin: 0 auto 0 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #999;
+}
+.layout-archive .wrap main article .post-wrap > div:last-child span {
+  margin: 0 auto 0 0;
+}
+.layout-archive .wrap main article .post-wrap > div:last-child time {
+  padding: 0 0 0 0.25rem;
+}
+.layout-archive .wrap main article .post-wrap > div:last-child a {
+  margin: 0 0.5rem 0 0;
+  text-transform: uppercase;
+  color: #a3a3a3;
+}
+.layout-archive .wrap main article .post-wrap > div:last-child a:hover {
+  color: #555;
+}
+.layout-archive .wrap main article figure {
+  filter: saturate(0.4);
+  opacity: 0.6;
+  overflow: hidden;
+  transition: filter 1s ease, opacity 1s ease;
+}
+.layout-archive .wrap main article figure a {
+  display: flex;
+  align-items: flex-start;
+}
+.layout-archive .wrap main article figure a:empty {
+  height: 6rem;
+  background: #999 linear-gradient(45deg, transparent, hsla(0, 0%, 0%, 0.25));
+}
+.layout-archive .wrap main article figure:hover a {
+  transform: scale(1.05) rotate(1deg);
+}
+.layout-archive .wrap main article:hover figure {
+  filter: saturate(1);
+  opacity: 1;
+}
+.layout-archive .wrap main article.cite {
+  background: #f9f9f9;
+}
+.layout-archive .wrap main article.cite:hover {
+  background: #fff;
+}
+.layout-archive .wrap main article.cite a p {
+  font-size: 1rem;
+}
+.layout-archive .wrap main article.cite a p cite {
+  font-size: 0.875rem;
+}
+.layout-archive .wrap main article.link {
+  color: #eee;
+  background: #666;
+}
+.layout-archive .wrap main article.link a {
+  color: #eee;
+}
+.layout-archive .wrap main article.link:hover {
+  background: #333;
+}
+.layout-post {
+  background: #fff;
+}
+.layout-post .wrap header {
+  max-width: 100rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  position: relative;
+  opacity: 0.9;
+  z-index: 6;
+}
+.layout-post .wrap header svg {
+  fill: #fff;
+}
+.layout-post .wrap header img {
+  filter: invert(1);
+}
+.layout-post .wrap main figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 50vh;
+  background: url("https://pic.downk.cc/item/5e996755c2a9a83be583bc26.png") center / cover;
+  filter: saturate(0.5);
+}
+.layout-post .wrap main figure::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, hsla(0, 0%, 0%, 0.75), hsla(0, 0%, 0%, 0.25));
+  z-index: -1;
+}
+.layout-post .wrap main h2 {
+  margin: 1.5rem 0 1.25rem;
+}
+.layout-post .wrap main article .post-wrap div {
+  margin: 0 auto;
+  max-width: 40rem;
+  font-size: 0.875rem;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+.layout-post .wrap main article .post-wrap div time {
+  margin: 0 0.5em 0 0;
+}
+.layout-post .wrap main article .post-wrap div a {
+  color: #fff;
+  margin: 0 0 0 0.5em;
+  box-shadow: none;
+}
+.layout-post .wrap main article .post-wrap div a:hover {
+  opacity: 0.75;
+}
+.layout-post .wrap main article .post-wrap .view::after,
+.layout-post .wrap main article .post-wrap .like::after {
+  content: attr(data-next);
+}
+.layout-post .wrap main article .post-wrap .view {
+  margin: 0 0.5rem 0 0;
+  transition: opacity 0.5s ease;
+}
+.layout-post .wrap main article .post-wrap .view svg {
+  margin: 0 0.25rem 0 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: #fff;
+  vertical-align: -2px;
+}
+.layout-post .wrap main article .post-wrap .like {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  vertical-align: bottom;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+}
+.layout-post .wrap main article .post-wrap .like svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: #fff;
+  vertical-align: -1px;
+}
+.layout-post .wrap main article .post-wrap .like:hover svg,
+.layout-post .wrap main article .post-wrap .like.on svg {
+  fill: #f99;
+}
+.layout-post .wrap main article .post-wrap .like::before {
+  content: attr(data-prev);
+}
+.layout-post .wrap main article .post-wrap .like::before,
+.layout-post .wrap main article .post-wrap .like::after {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  transition: top 0.25s ease, opacity 0.25s ease;
+}
+.layout-post .wrap main article .post-wrap .like::after {
+  top: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+.layout-post .wrap main article .post-wrap .like.on::before {
+  top: -100%;
+  opacity: 0;
+  pointer-events: none;
+}
+.layout-post .wrap main article .post-wrap .like.on::after {
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+.layout-post .wrap main article .post-wrap [data-load] {
+  opacity: 0;
+}
+.layout-post .wrap main article .table-wrap {
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 0.125rem;
+  overflow-x: auto;
+}
+.layout-post .wrap main article.post {
+  position: relative;
+  margin: calc(50vh - 6rem) 0 0;
+  padding: 5rem 1rem 10rem;
+  font-size: 1rem;
+  background: #fff;
+}
+.layout-post .wrap main article.post section {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.layout-post .wrap main article.post figure {
+  position: fixed;
+  z-index: -1;
+}
+.layout-post .wrap main article.post .post-wrap {
+  position: absolute;
+  bottom: calc(100% + 4rem);
+  left: 0;
+  padding: 0 1rem;
+  width: 100%;
+  opacity: 0.9;
+}
+.layout-post .wrap main article.post .post-wrap div:last-child {
+  opacity: 0.8;
+}
+.layout-post .wrap main article.post .post-wrap h1 {
+  margin: 0.5rem auto;
+  max-width: 40rem;
+  font-size: 2rem;
+  color: #fff;
+  text-align: left;
+}
+.layout-post .wrap main article.link {
+  color: #fff;
+}
+.layout-post .wrap main article.link .post-wrap {
+  position: static;
+  margin: 0 auto;
+  padding: 25vh 1rem 10rem;
+  max-width: 42rem;
+}
+.layout-post .wrap main article.link .post-wrap .view svg {
+  margin: 0 0.25rem 0 1rem;
+}
+.layout-post .wrap main article.link .post-wrap section {
+  padding: 7.5rem 0 0;
+}
+.layout-post .wrap main article.link .post-wrap section a {
+  display: block;
+  font-size: 1rem;
+  color: hsla(0, 0%, 100%, 0.5);
+  box-shadow: none;
+}
+.layout-post .wrap main article.link .post-wrap section a span:first-child {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.layout-post .wrap main article.link .post-wrap section a:hover {
+  opacity: 0.75;
+}
+.layout-post .wrap main article.cite {
+  color: #fff;
+}
+.layout-post .wrap main article.cite .post-wrap {
+  position: static;
+  margin: 0 auto;
+  padding: 25vh 1rem 10rem;
+  max-width: 42rem;
+}
+.layout-post .wrap main article.cite .post-wrap .view svg {
+  margin: 0 0.25rem 0 1rem;
+}
+.layout-post .wrap main article.cite .post-wrap section {
+  padding: 7.5rem 0 0;
+  font-size: 1.5rem;
+}
+.layout-post .wrap main article.cite .post-wrap section cite {
+  font-size: 1rem;
+}
+.layout-post .wrap main nav {
+  padding: 5rem 1rem 10rem;
+  background: #eee;
+}
+.layout-post .wrap main nav > div {
+  margin: 0 auto;
+  max-width: 40rem;
+}
+.layout-post .wrap main nav svg {
+  margin: 0 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  fill: #555;
+  vertical-align: -0.1875rem;
+}
+.layout-post .wrap main nav .prev {
+  margin: 0.5rem 0;
+  float: left;
+}
+.layout-post .wrap main nav .next {
+  margin: 0.5rem 0;
+  float: right;
+}
+.layout-post .wrap main nav a {
+  display: inline-block;
+  padding: 0.5rem;
+  background: #f9f9f9;
+  border-radius: 0.125rem;
+  user-select: none;
+}
+.layout-post .wrap main nav a:hover {
+  background: #fff;
+}
+.layout-post .wrap main .comment {
+  background: #eee;
+}
+.layout-post .wrap main .comment > * {
+  margin: 0 auto;
+  max-width: 40rem;
+}
+.layout-post .wrap main .comment .vcount {
+  width: 100%;
+}
+.layout-post .wrap main .comment .vpanel {
+  margin: 5rem auto;
+  padding: 0 1rem;
+  max-width: 42rem;
+}
+.layout-post .wrap footer {
+  padding: 10rem 1rem 2rem;
+  background: #eee;
+}
+.layout-post .wrap footer div {
+  margin: 0 auto;
+  max-width: 40rem;
+}
+.layout-post code {
+  font-size: 0.875rem;
+}
+.layout-post pre {
+  color: #eee;
+  background: #333;
+  border-color: #333;
+  border-radius: 0.125rem;
+}
+.layout-post pre code::selection,
+.layout-post pre span::selection {
+  background: #666;
+}
+.layout-post pre .hljs-name,
+.layout-post pre .hljs-strong {
+  font-weight: bold;
+}
+.layout-post pre .hljs-code,
+.layout-post pre .hljs-emphasis {
+  font-style: italic;
+}
+.layout-post pre .hljs-tag {
+  color: #62c8f3;
+}
+.layout-post pre .hljs-variable,
+.layout-post pre .hljs-template-variable,
+.layout-post pre .hljs-selector-id,
+.layout-post pre .hljs-selector-class {
+  color: #ade5fc;
+}
+.layout-post pre .hljs-string,
+.layout-post pre .hljs-bullet {
+  color: #a2fca2;
+}
+.layout-post pre .hljs-type,
+.layout-post pre .hljs-title,
+.layout-post pre .hljs-section,
+.layout-post pre .hljs-attribute,
+.layout-post pre .hljs-quote,
+.layout-post pre .hljs-built_in,
+.layout-post pre .hljs-builtin-name {
+  color: #ffa;
+}
+.layout-post pre .hljs-number,
+.layout-post pre .hljs-symbol,
+.layout-post pre .hljs-bullet {
+  color: #d36363;
+}
+.layout-post pre .hljs-keyword,
+.layout-post pre .hljs-selector-tag,
+.layout-post pre .hljs-literal {
+  color: #fcc28c;
+}
+.layout-post pre .hljs-comment,
+.layout-post pre .hljs-deletion,
+.layout-post pre .hljs-code {
+  color: #888;
+}
+.layout-post pre .hljs-regexp,
+.layout-post pre .hljs-link {
+  color: #c6b4f0;
+}
+.layout-post pre .hljs-meta {
+  color: #fc9b9b;
+}
+.layout-post pre .hljs-deletion {
+  background-color: #fc9b9b;
+  color: #333;
+}
+.layout-post pre .hljs-addition {
+  background-color: #a2fca2;
+  color: #333;
+}
+aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 9;
+  pointer-events: none;
+}
+aside figure {
+  position: relative;
+  width: 61px;
+  height: 45px;
+  background: hsl(0, 0%, 75%);
+  border-radius: 1px;
+  perspective: 10rem;
+}
+aside figure div {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 32px;
+  height: 45px;
+  background: hsla(0, 0%, 75%, 0.5);
+  border-left: 2px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 1px 0 0 1px;
+  transform-style: preserve-3d;
+  transform-origin: 1px center;
+  animation: page 4s cubic-bezier(0, 0.39, 1, 0.68) infinite;
+}
+aside figure div:nth-child(2) {
+  animation-delay: 0.25s;
+}
+aside figure div:nth-child(3) {
+  animation-delay: 0.5s;
+}
+aside[data-load] {
+  opacity: 1;
+}
+@keyframes page {
+  10% {
+    transform: rotateY(0deg);
+  }
+  30% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
+}
+@media only screen and (max-width: 40rem) {
+  .layout-post pre {
+    max-width: calc(100% + 2rem);
+    margin: 1rem -1rem;
+    border-radius: 0;
+  }
+}
+@media only screen and (max-width: 38rem) {
+  .layout-archive .wrap main article {
+    margin: 0 0 1.25rem 0;
+    width: 100%;
+  }
+}
+.comment {
+  display: flex;
+  flex-direction: column;
+}
+.comment input,
+.comment textarea,
+.comment button {
+  color: #999;
+  background: #f9f9f9;
+  transition: color 0.5s ease-in-out, background 0.5s ease-in-out;
+  -webkit-appearance: none;
+}
+.comment input:hover,
+.comment input:focus,
+.comment textarea:hover,
+.comment textarea:focus {
+  color: #555;
+  background: #fff;
+}
+.comment input {
+  flex: 1 1 auto;
+  padding: 0.5rem;
+  width: 30%;
+  border-right: 1px solid #eee;
+}
+.comment textarea {
+  padding: 0.75rem 0.5rem;
+  width: 100%;
+  min-height: 5rem;
+  border-radius: 0.125rem 0.125rem 0 0;
+  border-bottom: 1px solid #eee;
+  resize: none;
+}
+.comment .vcount {
+  order: -1;
+  text-align: center;
+}
+.comment .vcount div {
+  display: inline-block;
+  padding: 0 1rem;
+  background: #eee;
+}
+.comment .vcount::before {
+  content: "";
+  display: block;
+  margin: 0 0 -0.75rem;
+  height: 1px;
+  background: #ccc;
+}
+.comment .vpanel {
+  margin: 5rem 0;
+}
+.comment .vwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.comment .vedit {
+  order: -1;
+  flex: 0 0 100%;
+}
+.comment .vheader {
+  flex: 1 1 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.comment .vinput.vnick {
+  border-radius: 0 0 0 0.125rem;
+}
+.comment .vbtn {
+  flex: 1 0 4em;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 0 0.125rem 0;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.comment .vbtn:hover {
+  color: #fff;
+  background: #666;
+}
+.comment .vrow,
+.comment .vsys,
+.comment .vcopy {
+  display: none;
+}
+.comment .vcol.vcol-70 {
+  text-align: right;
+}
+.comment .vlist > .vcard {
+  border-bottom: 1px solid #999;
+}
+.comment .vtime {
+  color: #ccc;
+  font-size: 0.75rem;
+}
+.comment .vat {
+  float: right;
+  font-size: 0.75rem;
+  color: #999;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.comment .vat:hover {
+  color: #555;
+}
+.comment .vcontent {
+  padding: 1rem 0;
+  color: #555;
+}
+.comment .cancel-reply {
+  order: 3;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  color: #555;
+  background: #f9f9f9;
+  border-radius: 0 0 0.125rem 0;
+  border-left: 1px solid #eee;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.comment .cancel-reply svg {
+  display: none;
+}
+.comment .cancel-reply::before {
+  content: "×";
+}
+.comment .cancel-reply:hover {
+  color: #fff;
+  background: #666;
+}
+.comment .cancel-reply[style="display:block;"] + .vheader .vbtn {
+  border-radius: 0;
+}

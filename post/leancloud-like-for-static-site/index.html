@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>基于 LeanCloud 的静态页面点击 / 点赞统计 | fiammanda</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Fira+Code&family=Roboto:wght@500&display=swap">
+	<link rel="stylesheet" href="http://localhost:4000/styles/main.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.2.0/dist/av-min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+	
+
+	<meta name="description" content="依次为 JavaScript 和 CSS 代码。
+
+AV.init({
+	appId: '',
+	appKey: ''
+});
+
+let query = new AV.Query('Counter'),
+	Log = AV.Object.e..." />
+	<meta name="keywords" content="JavaScript" />
+</head>
+<body class="layout-post">
+	<aside data-load>
+		<figure><div></div><div></div><div></div></figure>
+	</aside>
+	<div data-load class="wrap">
+		
+	<header>
+		<img src="/favicon.svg">
+		<h1></h1>
+		
+		<nav>
+			<div>
+				<a href="http://localhost:4000/post/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512,120v272c0,66.2-53.8,120-120,120H120C53.8,512,0,458.2,0,392l0-272C0,53.8,53.8,0,120,0l272,0 C458.2,0,512,53.8,512,120z M40,392c0,44.1,35.9,80,80,80h272c44.1,0,80-35.9,80-80V120c0-44.1-35.9-80-80-80H120 c-44.1,0-80,35.9-80,80V392z M256,88c-11,0-20,9-20,20v141c0,11,9,20,20,20c11,0,20-9,20-20V108C276,97,267,88,256,88z M179,88 c-11,0-20,9-20,20v187c0,11,9,20,20,20s20-9,20-20V108C199,97,190,88,179,88z M101,88c-11,0-20,9-20,20v84c0,11,9,20,20,20 s20-9,20-20v-84C121,97,112,88,101,88z M334,88c-11,0-20,9-20,20v44c0,11,9,20,20,20s20-9,20-20v-44C354,97,345,88,334,88z M334,212 c-11,0-20,9-20,20v141c0,11,9,20,20,20s20-9,20-20V232C354,221,345,212,334,212z M101,253c-11,0-20,9-20,20v44c0,11,9,20,20,20 s20-9,20-20v-44C121,262,112,253,101,253z M412,88c-11,0-20,9-20,20v167c0,11,9,20,20,20s20-9,20-20V108C432,97,423,88,412,88z"/></svg></a>
+				<section>
+					<a href="http://localhost:4000/tag/cite/" class="tag">CITE</a>
+					<a href="http://localhost:4000/tag/link/" class="tag">LINK</a>
+					<span></span>
+					<a href="http://localhost:4000/tag/review/" class="tag">Review</a>
+					<span></span>
+					<a href="http://localhost:4000/tag/css/" class="tag">CSS</a>
+					<a href="http://localhost:4000/tag/javascript/" class="tag">JavaScript</a>
+					<a href="http://localhost:4000/tag/jquery/" class="tag">jQuery</a>
+					<a href="http://localhost:4000/tag/website/" class="tag">Website</a>
+					<a href="http://localhost:4000/tag/windows/" class="tag">Windows</a>
+				</section>
+			</div>
+			<div>
+				<a href="http://localhost:4000/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="m216.007 373.953c-22.013 0-44.024-6.906-62.396-20.724l-65.611-49.203c-8.837-6.627-10.628-19.163-4.001-28 6.627-8.836 19.162-10.629 28-4.001l65.634 49.22c22.6 16.998 54.135 16.998 76.711.017l65.656-49.237c8.835-6.628 21.372-4.835 28 4.001 6.627 8.837 4.835 21.373-4.001 28l-65.633 49.22c-18.351 13.803-40.356 20.707-62.359 20.707zm215.993-3.928v-105.05c0-66.168-53.832-120-120-120h-192c-66.168 0-120 53.832-120 120v105.051c0 66.168 53.832 120 120 120h192c66.168-.001 120-53.833 120-120.001zm-120-185.05c44.112 0 80 35.888 80 80v105.051c0 44.112-35.888 80-80 80h-192c-44.112 0-80-35.888-80-80v-105.051c0-44.112 35.888-80 80-80zm200 113v-156c0-66.168-53.832-120-120-120h-192c-39.284 0-76.14 19.284-98.589 51.586-6.304 9.07-4.062 21.533 5.009 27.837 9.069 6.303 21.533 4.061 27.837-5.009 14.976-21.549 39.553-34.414 65.743-34.414h192c44.112 0 80 35.888 80 80v156c0 11.046 8.954 20 20 20s20-8.954 20-20z"/></svg></a>
+			</div>
+			<div>
+				<a href="http://localhost:4000/atom.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="m392 512h-272c-66.168 0-120-53.832-120-120v-272c0-66.168 53.832-120 120-120h272c66.168 0 120 53.832 120 120v272c0 66.168-53.832 120-120 120zm-272-472c-44.112 0-80 35.888-80 80v272c0 44.112 35.888 80 80 80h272c44.112 0 80-35.888 80-80v-272c0-44.112-35.888-80-80-80zm0 328c-13.807 0-25 11.193-25 25s11.193 25 25 25 25-11.193 25-25-11.193-25-25-25zm163 30c0-92.636-75.364-168-168-168-11.046 0-20 8.954-20 20s8.954 20 20 20c70.579 0 128 57.42 128 128 0 11.046 8.954 20 20 20s20-8.954 20-20zm131 0c0-79.866-31.102-154.951-87.575-211.425s-131.56-87.575-211.425-87.575c-11.046 0-20 8.954-20 20s8.954 20 20 20c142.813 0 259 116.187 259 259 0 11.046 8.954 20 20 20s20-8.954 20-20z"/></svg></a>
+			</div>
+		</nav>
+	</header>
+	
+
+		
+		<main>
+
+			
+			<article class="post">
+				
+				<figure style="background-image: url(https://pic.downk.cc/item/5e97d532c2a9a83be5344c6c.jpg);">
+				
+				</figure>
+				<section>
+					<div class="post-wrap">
+						<div>
+							<time>2020-04-01</time>
+							
+							
+							<a href="http://localhost:4000/tag/javascript">JavaScript</a>
+							
+							
+						</div>
+						<h1>基于 LeanCloud 的静态页面点击 / 点赞统计</h1>
+						<div>
+							<span class="view" data-load><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M509.188,247.269C504.617,240.883,394.661,91,255.999,91S7.382,240.883,2.812,247.27c-3.75,5.215-3.75,12.246,0,17.461 C7.382,271.117,117.338,421,255.999,421s248.617-149.883,253.188-156.27C512.938,259.515,512.938,252.484,509.188,247.269z  M255.999,361c-57.891,0-105-47.109-105-105s47.109-105,105-105s105,47.109,105,105S313.891,361,255.999,361z"/><path d="M255.999,211c-24.814,0-45,20.186-45,45c0,24.814,20.186,45,45,45c24.814,0,45-20.186,45-45 C301,231.186,280.814,211,255.999,211z"/></svg></span>
+							<span class="like" data-load><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 1024"><path d="M740.8,69.6c156.4,0,283.2,126.8,283.2,283.1c0,258.4-512,601.6-512,601.6S0,623.5,0,352.7C0,158.1,126.8,69.6,283.1,69.6 c94.2,0,177.4,46.2,228.9,116.9C563.5,115.8,646.7,69.6,740.8,69.6z"/></svg></span>
+						</div>
+					</div>
+					<div><p>依次为 <code>JavaScript</code> 和 <code>CSS</code> 代码。</p>
+<!-- more -->
+<pre><code class="language-javascript">AV.init({
+	appId: '',
+	appKey: ''
+});
+
+let query = new AV.Query('Counter'),
+	Log = AV.Object.extend('Counter'),
+	url = window.location.pathname,
+	title = document.title,
+	logId, logView = 1, logLike = 0,
+	site = AV.Object.createWithoutData('Counter', '可填入全站统计objectID');
+
+if (!localStorage.getItem('/')) {
+	site.increment('uv', 1).save().then(function() {
+		localStorage.setItem('/', '1');
+	});
+	if (!sessionStorage.getItem('/')) {
+		site.increment('ov', 1).save().then(function() {
+			sessionStorage.setItem('/', '1');
+		});
+	}
+}
+
+query.equalTo('url', url).first().then(function(log) {
+	if (!log) {
+		let log = new Log();
+		log.set({
+			'url': url, 'title': title,
+			'ov': 1, 'uv': 1, 'like': 0,
+		}).save().then(function(log) {
+			logId = log.id;
+		});
+	} else {
+		if (!localStorage.getItem(url)) {
+			log.increment('uv', 1).save().then(function() {
+				localStorage.setItem(url, '1');
+			});
+			if (!sessionStorage.getItem(url)) {
+				log.increment('ov', 1).save().then(function() {
+					sessionStorage.setItem(url, '1');
+				});
+			}
+		}
+		logId = log.id;
+		logView = log.attributes.ov;
+		logLike = log.attributes.like;
+	}
+}).then(function() {
+	$('.view').attr({
+		'data-prev': logView-1 + ' Views',
+		'data-next': logView + ' Views',
+	}).removeClass('off').addClass('on');
+	$('.like').attr({
+		'data-prev': logLike + ' Likes',
+		'data-next': logLike+1 + ' Likes',
+	}).on('click', function() {
+		let page = AV.Object.createWithoutData('Counter', logId);
+		if (localStorage.getItem(url) !== '2') {
+			site.increment('like', 1).save();
+			page.increment('like', 1).save().then(function() {
+				localStorage.setItem(url, '2');
+				$('.like').addClass('on');
+			});
+		} else {
+			site.increment('like', -1).save();
+			page.increment('like', -1).save();
+			localStorage.setItem(url, '1');
+			$(this).removeClass('on');
+		}
+	}).removeClass('off');
+	$('.like.on').attr({
+		'data-prev': logLike-1 + ' Likes',
+		'data-next': logLike + ' Likes',
+	});
+});
+</code></pre>
+<pre><code class="language-css">.like {
+	cursor: pointer;
+}
+.like:hover svg {
+	animation: pulse 2s ease-in-out infinite;
+}
+.like.on svg {
+	fill: var(--某个红色);
+}
+span[class] {
+	position: relative;
+	color: transparent;
+}
+span[class]::before, span[class]::after {
+	content: attr(data-prev);
+	position: absolute;
+	left: 1.625rem;
+	top: 0;
+	line-height: 1.5;
+	white-space: nowrap;
+	color: var(--某个颜色);
+	transition: top .2s ease-in-out, opacity .15s .05s ease-in-out;
+}
+span[class]::after {
+	content: attr(data-next);
+	top: 100%;
+	opacity: 0;
+	pointer-events: none;
+}
+span.on::before {
+	top: -100%;
+	opacity: 0;
+	transition: top .2s ease-in-out, opacity .15s ease-in-out;
+	pointer-events: none;
+}
+span.on::after {
+	top: 0;
+	opacity: 1;
+	transition: top .2s ease-in-out, opacity .15s ease-in-out;
+}
+
+@keyframes pulse {
+	0% { opacity: 1; }
+	30% { opacity: .6; }
+	60% { opacity: 1; } 
+}
+</code></pre>
+</div>
+				</section>
+			
+			</article>
+
+			<nav>
+				<div>
+					<div class="prev">
+					
+					<a href="http://localhost:4000/post/valine-remove-official-style">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="m54 30h-39.899l15.278-14.552c.8-.762.831-2.028.069-2.828-.761-.799-2.027-.831-2.828-.069l-17.448 16.62c-.755.756-1.172 1.76-1.172 2.829 0 1.068.417 2.073 1.207 2.862l17.414 16.586c.387.369.883.552 1.379.552.528 0 1.056-.208 1.449-.621.762-.8.731-2.065-.069-2.827l-15.342-14.552h39.962c1.104 0 2-.896 2-2s-.896-2-2-2z"/></svg>
+						Valine 移除自带样式
+					</a>
+					
+					</div>
+					<div class="next">
+					
+					<a href="http://localhost:4000/post/jquery-animation-css-transition-confliction">
+						jQuery 动画效果与 CSS transition 冲突
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z"/></svg>
+					</a>
+					
+					</div>
+				</div>
+			</nav>
+
+			<div class="comment"></div>
+		</main>
+
+		
+		<footer>
+			<div>
+				© fiammanda | Received
+				<span class="view"></span>
+				<span class="like"></span>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 1024"><path d="M740.8,69.6c156.4,0,283.2,126.8,283.2,283.1c0,258.4-512,601.6-512,601.6S0,623.5,0,352.7C0,158.1,126.8,69.6,283.1,69.6 c94.2,0,177.4,46.2,228.9,116.9C563.5,115.8,646.7,69.6,740.8,69.6z"/></svg>
+			</div>
+		</footer>
+
+
+		
+		<script type="text/javascript">
+			$(function() {
+				$('.link, .cite').css('margin-top', $('article figure').height() - 96);
+				$('article table').wrap('<div class="table-wrap"></div>');
+			})
+		</script>
+		
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/javascript">
+		$(window).on('pageshow', function() {
+			$('[data-load]').each(function(i) {
+				var load = $(this);
+				setTimeout(function() {
+					load.removeAttr('data-load');
+				}, 50 * i);
+			});
+		});
+		$('a:not([target])').on('click', function(e) {
+			e.preventDefault();
+			let href = $(this).attr('href');
+			$('.wrap, aside').attr('data-load', '').css('animation', 'none');
+			setTimeout(function () {
+				window.location = href;
+			}, 500);
+		});
+		$('body').on('touchstart', function() {
+			const eTags = '0INPUTTEXTAREA';
+			$(this).on('click', function(e) {
+				if (eTags.indexOf(e.target.tagName) < 0) {
+					$('a, input, textarea').mouseout().blur();
+				}
+			});
+		});
+
+		AV.init({
+			appId: 'hsCm0rxy54MvGFlXO5FIK7dM-9Nh9j0Va',
+			appKey: 'Ji0eYrzpX9e7l3iG0sLH3RhX',
+		});
+
+		let url = window.location.pathname,
+			site = AV.Object.createWithoutData('Counter', '5e96ffd5df5b3200088e9c64'),
+			allView, allLike;
+		url = url.startsWith('/log') ? url : '/log' + url;
+		site.fetch().then(function(site) {
+			allView = site.attributes.ov;
+			allLike = site.attributes.like;
+			if (!localStorage.getItem('/log/')) {
+				site.increment('uv', 1).save().then(function() {
+					localStorage.setItem('/log/', '1');
+				});
+				if (!sessionStorage.getItem('/log/')) {
+					site.increment('ov', 1).save().then(function() {
+						sessionStorage.setItem('/log/', '1');
+					});
+				}
+			}
+			$(function() {
+				$('footer .view').attr('data-current', allView + ' Views & ').removeAttr('data-load');
+				$('footer .like').attr('data-current', allLike + ' Likes').removeAttr('data-load');
+			})
+		});
+		if (url != '/log/') {
+			let query = new AV.Query('Counter'),
+				Log = AV.Object.extend('Counter'),
+				title = document.title.split(' |',1)[0],
+				logId, logView = 1, logLike = 0;
+
+			query.equalTo('url', url).first().then(function(log) {
+				if (!log) {
+					let log = new Log();
+					log.set({
+						'url': url, 'title': title,
+						'ov': 1, 'uv': 1, 'like': 0,
+					}).save().then(function(log) {
+						logId = log.id;
+					});
+				} else {
+					if (!localStorage.getItem(url)) {
+						log.increment('uv', 1).save().then(function() {
+							localStorage.setItem(url, '1');
+						});
+						if (!sessionStorage.getItem(url)) {
+							log.increment('ov', 1).save().then(function() {
+								sessionStorage.setItem(url, '1');
+							});
+						}
+					}
+					logId = log.id;
+					logView = log.attributes.ov;
+					logLike = log.attributes.like;
+				}
+				if (url.startsWith('/log/post/') && url != '/log/post/') {
+					$(function() {
+						if (localStorage.getItem(url) == '2') {
+							$('article .like').addClass('on');
+						}
+						$('article .view').attr({
+							'data-prev': logView-1,
+							'data-next': logView,
+						}).removeAttr('data-load').addClass('on');
+						$('article .like').attr({
+							'data-prev': logLike,
+							'data-next': logLike+1,
+						}).removeAttr('data-load').on('click', function() {
+							let page = AV.Object.createWithoutData('Counter', logId);
+							if (localStorage.getItem(url) != '2') {
+								site.increment('like', 1).save();
+								page.increment('like', 1).save().then(function() {
+									localStorage.setItem(url, '2');
+									$('.like').addClass('on');
+								});
+							} else {
+								site.increment('like', -1).save();
+								page.increment('like', -1).save();
+								localStorage.setItem(url, '1');
+								$(this).removeClass('on');
+							}
+						});
+						$('article .like.on').attr({
+							'data-prev': logLike-1,
+							'data-next': logLike,
+						});
+					})
+				}
+			});
+		}
+	</script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162600333-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-162600333-1');
+	</script>
+
+
+		
+			<script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.Pure.min.js"></script>
+			<script type="text/javascript">
+				new Valine({
+					el: '.comment',
+					appId: 'hsCm0rxy54MvGFlXO5FIK7dM-9Nh9j0Va',
+					appKey: 'Ji0eYrzpX9e7l3iG0sLH3RhX',
+					placeholder: ' ',
+					avatar: 'hide',
+					highlight: false,
+				})
+				$('.vsubmit').appendTo('.vheader');
+				$('.vlink').attr('placeholder', '链接');
+				$('.vcount').html('<span class="vnum">0</span> 条留言').wrapInner('<div>').removeAttr('style');
+				$('.vempty').remove();
+				$('head style').eq(-1).remove();
+			</script>
+
+	</div>
+</body>
+</html>
