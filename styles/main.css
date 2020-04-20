@@ -115,6 +115,7 @@ pre {
 }
 pre code {
   display: block;
+  background: transparent !important;
 }
 blockquote {
   padding: 0.5em 0 0.5em 0.7em;

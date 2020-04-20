@@ -260,8 +260,26 @@ Safari 什么时候能支持这个……。
 
 
 	
-			<script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.Pure.min.js"></script>
 			<script type="text/javascript">
+			loadComments();
+			function loadComments() {
+				if (typeof Valine === 'undefined') {
+					var getScript = (options) => {
+						var script = document.createElement('script');
+						script.defer = true;
+						script.crossOrigin = 'anonymous';
+						Object.keys(options).forEach((key) => { script[key] = options[key]; });
+						document.body.appendChild(script);
+					};
+					getScript({
+						src: 'https://cdn.jsdelivr.net/npm/valine/dist/Valine.Pure.min.js',
+						onload: () => { newValine(); }
+					});
+				} else {
+					newValine();
+				}
+			}
+			function newValine() {
 				new Valine({
 					el: '.comment',
 					appId: 'hsCm0rxy54MvGFlXO5FIK7dM-9Nh9j0Va',
@@ -269,12 +287,14 @@ Safari 什么时候能支持这个……。
 					placeholder: ' ',
 					avatar: 'hide',
 					highlight: false,
-				})
+					recordIP: true,
+				});
 				$('.vsubmit').appendTo('.vheader');
 				$('.vlink').attr('placeholder', '链接');
 				$('.vcount').html('<span class="vnum">0</span> 条留言').wrapInner('<div>').removeAttr('style');
 				$('.vempty').remove();
 				$('head style').eq(-1).remove();
+			}
 			</script>
 
 </body>
