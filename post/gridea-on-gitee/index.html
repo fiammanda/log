@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
 	
 	<meta charset="utf-8" >
@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="/log/styles/main.css">
 	<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.2.0/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
 	
 
 	<meta name="description" content="部署到 Gitee 需要已经在 Github 上部署好的 Gridea 和一个 Gitee 账号（废话）。
@@ -141,15 +140,15 @@
 		</footer>
 
 
-		
-		<script type="text/javascript">
-			$(function() {
-				$('.link, .cite').css('margin-top', $('article figure').height() - 96);
-				$('article table').wrap('<div class="table-wrap"></div>');
-			})
-		</script>
-		
-	<script>hljs.initHighlightingOnLoad();</script>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+	<script type="text/javascript">
+		hljs.initHighlightingOnLoad();
+		$('.link, .cite').css('margin-top', $('article figure').height() - 96);
+		$('article table').wrap('<div class="table-wrap"></div>');
+	</script>
+	
 	<script type="text/javascript">
 		$(window).on('pageshow', function() {
 			$('[data-load]').each(function(i) {
@@ -279,7 +278,7 @@
 	</script>
 
 
-		
+	
 			<script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.Pure.min.js"></script>
 			<script type="text/javascript">
 				new Valine({
@@ -297,6 +296,5 @@
 				$('head style').eq(-1).remove();
 			</script>
 
-	</div>
 </body>
 </html>
