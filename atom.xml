@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fiammanda.github.io/log/</id>
     <title>Log</title>
-    <updated>2020-04-20T13:35:12.009Z</updated>
+    <updated>2020-04-20T15:19:50.030Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fiammanda.github.io/log/"/>
     <link rel="self" href="https://fiammanda.github.io/log/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://fiammanda.github.io/log/images/avatar.png</logo>
     <icon>https://fiammanda.github.io/log/favicon.ico</icon>
     <rights>All rights reserved 2020, Log</rights>
+    <entry>
+        <title type="html"><![CDATA[想用 WebP，狗逼苹果还在墨迹]]></title>
+        <id>https://fiammanda.github.io/log/post/photoshop-webp-plugin/</id>
+        <link href="https://fiammanda.github.io/log/post/photoshop-webp-plugin/">
+        </link>
+        <updated>2020-04-20T14:29:35.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[将 Gridea 部署到 Gitee]]></title>
         <id>https://fiammanda.github.io/log/post/gridea-on-gitee/</id>

@@ -4,18 +4,16 @@
 	
 	<meta charset="utf-8" >
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>将 Gridea 部署到 Gitee | fiammanda</title>
+	<title>想用 WebP，狗逼苹果还在墨迹 | fiammanda</title>
 	<link rel="stylesheet" href="/log/styles/main.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Fira+Code&family=Roboto:wght@500&display=swap" media="print" onload="this.media='all'">
 	<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.2.0/dist/av-min.js"></script>
 	
 
-	<meta name="description" content="部署到 Gitee 需要已经在 Github 上部署好的 Gridea 和一个 Gitee 账号（废话）。
-
-然后必须对站内链接进行处理，不然 Gitee 站内点击都会直接跳转到 Github。存在两种情况：
-如果部署在根目录就很方便，直接..." />
-	<meta name="keywords" content="Gridea,Website" />
+	<meta name="description" content="Photoshop WebP Plugin
+" />
+	<meta name="keywords" content="" />
 </head>
 <body class="layout-post">
 	<aside data-load>
@@ -59,7 +57,7 @@
 			
 			<article class="post">
 				
-				<figure style="background-image: url(https://pic.downk.cc/item/5e9bfb4ac2a9a83be5e32645.jpg);">
+				<figure>
 				
 				</figure>
 				<section>
@@ -67,44 +65,14 @@
 						<div>
 							<time>2020-04-20</time>
 							
-							
-							<a href="/log/tag/gridea">Gridea</a>
-							
-							<a href="/log/tag/website">Website</a>
-							
-							
 						</div>
-						<h1>将 Gridea 部署到 Gitee</h1>
+						<h1>想用 WebP，狗逼苹果还在墨迹</h1>
 						<div>
 							<span class="view" data-load><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M509.188,247.269C504.617,240.883,394.661,91,255.999,91S7.382,240.883,2.812,247.27c-3.75,5.215-3.75,12.246,0,17.461 C7.382,271.117,117.338,421,255.999,421s248.617-149.883,253.188-156.27C512.938,259.515,512.938,252.484,509.188,247.269z  M255.999,361c-57.891,0-105-47.109-105-105s47.109-105,105-105s105,47.109,105,105S313.891,361,255.999,361z"/><path d="M255.999,211c-24.814,0-45,20.186-45,45c0,24.814,20.186,45,45,45c24.814,0,45-20.186,45-45 C301,231.186,280.814,211,255.999,211z"/></svg></span>
 							<span class="like" data-load><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 1024"><path d="M740.8,69.6c156.4,0,283.2,126.8,283.2,283.1c0,258.4-512,601.6-512,601.6S0,623.5,0,352.7C0,158.1,126.8,69.6,283.1,69.6 c94.2,0,177.4,46.2,228.9,116.9C563.5,115.8,646.7,69.6,740.8,69.6z"/></svg></span>
 						</div>
 					</div>
-					<div><p>部署到 Gitee 需要已经在 Github 上部署好的 Gridea 和一个 Gitee 账号（废话）。</p>
-<!-- more -->
-<p>然后必须对站内链接进行处理，不然 Gitee 站内点击都会直接跳转到 Github。存在两种情况：</p>
-<p>如果部署在根目录就很方便，直接绝对路径：</p>
-<ul>
-<li>主页：<code>href=&quot;/&quot;</code></li>
-<li>文章：<code>href=&quot;/post/&lt;%= post.fileName %&gt;&quot;</code></li>
-<li>标签：<code>href=&quot;/tag/&lt;%= tag.slug %&gt;&quot;</code></li>
-<li>样式：<code>href=&quot;/styles/main.css&quot;</code></li>
-</ul>
-<p>如果像我一样没放在根目录就要稍稍进行一些处理……使用相对路径：</p>
-<ul>
-<li>主页：<code>href=&quot;&quot;</code></li>
-<li>文章：<code>href=&quot;post/&lt;%= post.fileName %&gt;&quot;</code></li>
-<li>标签：<code>href=&quot;tag/&lt;%= tag.slug %&gt;&quot;</code></li>
-<li>样式：<code>href=&quot;styles/main.css&quot;</code></li>
-</ul>
-<p>重点在于在 <code>head</code> 内对 <code>base</code> 进行设置：</p>
-<pre><code>&lt;base href=&quot;&lt;%- base() %&gt;&quot;&gt;
-&lt;% function base() {
-	return themeConfig.domain.indexOf('localhost') &gt; 0 ? themeConfig.domain : '/所在目录/';
-} %&gt;
-</code></pre>
-<p>这样本地预览和云端都能达到同样效果。</p>
-<p>最后用 Gitee 导入 Github Repo，每次推送手工同步一下（……）就好惹。</p>
+					<div><p><a href="http://telegraphics.com.au/sw/product/WebPFormat">Photoshop WebP Plugin</a></p>
 </div>
 				</section>
 			
@@ -114,16 +82,11 @@
 				<div>
 					<div class="prev">
 					
-					<a href="/log/post/photoshop-webp-plugin">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="m54 30h-39.899l15.278-14.552c.8-.762.831-2.028.069-2.828-.761-.799-2.027-.831-2.828-.069l-17.448 16.62c-.755.756-1.172 1.76-1.172 2.829 0 1.068.417 2.073 1.207 2.862l17.414 16.586c.387.369.883.552 1.379.552.528 0 1.056-.208 1.449-.621.762-.8.731-2.065-.069-2.827l-15.342-14.552h39.962c1.104 0 2-.896 2-2s-.896-2-2-2z"/></svg>
-						想用 WebP，狗逼苹果还在墨迹
-					</a>
-					
 					</div>
 					<div class="next">
 					
-					<a href="/log/post/20200419">
-						近期本地和隔壁更新
+					<a href="/log/post/gridea-on-gitee">
+						将 Gridea 部署到 Gitee
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z"/></svg>
 					</a>
 					
