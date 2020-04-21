@@ -57,7 +57,7 @@
 			
 			<article class="post" data-load>
 				<figure>
-					<a href="/log/post/gridea-on-gitee"><img src="https://pic.downk.cc/item/5e9bfb4ac2a9a83be5e32645.jpg"></a>
+					<a href="/log/post/gridea-on-gitee"><img class="off" src="https://pic.downk.cc/item/5e9bfb4ac2a9a83be5e32645.jpg"></a>
 				</figure>
 				<div class="post-wrap">
 					<h1>将 Gridea 部署到 Gitee</h1>
@@ -90,7 +90,7 @@
 			
 			<article class="post" data-load>
 				<figure>
-					<a href="/log/post/20200419"><img src="https://pic.downk.cc/item/5e9b2a5bc2a9a83be5ffde7f.jpg"></a>
+					<a href="/log/post/20200419"><img class="off" src="https://pic.downk.cc/item/5e9b2a5bc2a9a83be5ffde7f.jpg"></a>
 				</figure>
 				<div class="post-wrap">
 					<h1>近期本地和隔壁更新</h1>
@@ -152,15 +152,21 @@ Table Caption
 		
 		<script type="text/javascript">
 			if (window.innerHeight >= 684) {
-				$('head').append('<script src="https://cdn.jsdelivr.net/npm/packery/dist/packery.pkgd.min.js"><\/script>');
-				$(window).on('load', function() {
-					$('main').packery({
+				$('head').append('<script src="https://cdn.jsdelivr.net/npm/masonry-layout/dist/masonry.pkgd.min.js"><\/script>');
+				$('head script').eq(-1).on('load', function() {
+					$('main').masonry({
 						itemSelector: 'article',
 						columnWidth: 288,
 						gutter: 32
 					});
 				});
 			}
+			$('article figure img').on('load', function() {
+				$(this).removeClass('off');
+				if ($('article figure img.off').length == 0) {
+					$('main').masonry('layout');
+				}
+			});
 		</script>
 		
 		<footer>
@@ -176,14 +182,26 @@ Table Caption
 
 	
 	<script type="text/javascript">
-		$(window).on('pageshow', function() {
+
+		$(function() {
 			$('[data-load]').each(function(i) {
 				var load = $(this);
 				setTimeout(function() {
 					load.removeAttr('data-load');
 				}, 50 * i);
 			});
+		})
+		$(window).on('pageshow', function() {
+			if ($('[data-load]').length) {
+				$('[data-load]').each(function(i) {
+					var load = $(this);
+					setTimeout(function() {
+						load.removeAttr('data-load');
+					}, 50 * i);
+				});
+			}
 		});
+
 		$('a:not([target])').on('click', function(e) {
 			e.preventDefault();
 			let href = $(this).attr('href');

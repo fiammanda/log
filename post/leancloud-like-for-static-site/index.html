@@ -258,14 +258,26 @@ span.on::after {
 	</script>
 	
 	<script type="text/javascript">
-		$(window).on('pageshow', function() {
+
+		$(function() {
 			$('[data-load]').each(function(i) {
 				var load = $(this);
 				setTimeout(function() {
 					load.removeAttr('data-load');
 				}, 50 * i);
 			});
+		})
+		$(window).on('pageshow', function() {
+			if ($('[data-load]').length) {
+				$('[data-load]').each(function(i) {
+					var load = $(this);
+					setTimeout(function() {
+						load.removeAttr('data-load');
+					}, 50 * i);
+				});
+			}
 		});
+
 		$('a:not([target])').on('click', function(e) {
 			e.preventDefault();
 			let href = $(this).attr('href');

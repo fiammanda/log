@@ -331,6 +331,7 @@ tbody tr:nth-child(2n) {
   opacity: 1;
 }
 .layout-archive .wrap main article {
+  margin: 0 0 2rem;
   width: 18rem;
   background: #fff;
   border-radius: 0.125rem;
@@ -383,25 +384,31 @@ tbody tr:nth-child(2n) {
   color: #555;
 }
 .layout-archive .wrap main article figure {
-  filter: saturate(0.4);
-  opacity: 0.6;
+  opacity: 0.75;
+  filter: saturate(0.25);
   overflow: hidden;
   transition: filter 1s ease, opacity 1s ease;
 }
 .layout-archive .wrap main article figure a {
   display: flex;
   align-items: flex-start;
+  background: #999 linear-gradient(45deg, transparent, hsla(0, 0%, 0%, 0.25));
 }
 .layout-archive .wrap main article figure a:empty {
   height: 6rem;
-  background: #999 linear-gradient(45deg, transparent, hsla(0, 0%, 0%, 0.25));
 }
 .layout-archive .wrap main article figure:hover a {
   transform: scale(1.05) rotate(1deg);
 }
+.layout-archive .wrap main article figure img {
+  transition: opacity 1s ease;
+}
+.layout-archive .wrap main article figure img.off {
+  opacity: 0;
+}
 .layout-archive .wrap main article:hover figure {
-  filter: saturate(1);
   opacity: 1;
+  filter: saturate(1);
 }
 .layout-archive .wrap main article.cite {
   background: #f9f9f9;

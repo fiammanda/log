@@ -57,7 +57,7 @@
 			
 			<article class="post" data-load>
 				<figure>
-					<a href="/log/post/jquery-animation-css-transition-confliction"><img src="https://pic.downk.cc/item/5e97d496c2a9a83be533ec30.jpg"></a>
+					<a href="/log/post/jquery-animation-css-transition-confliction"><img class="off" src="https://pic.downk.cc/item/5e97d496c2a9a83be533ec30.jpg"></a>
 				</figure>
 				<div class="post-wrap">
 					<h1>jQuery 动画效果与 CSS transition 冲突</h1>
@@ -87,7 +87,7 @@
 			
 			<article class="post" data-load>
 				<figure>
-					<a href="/log/post/css-textsetting"><img src="https://pic.downk.cc/item/5e97cfefc2a9a83be531533c.jpg"></a>
+					<a href="/log/post/css-textsetting"><img class="off" src="https://pic.downk.cc/item/5e97cfefc2a9a83be531533c.jpg"></a>
 				</figure>
 				<div class="post-wrap">
 					<h1>CSS 中英文混排字体</h1>
@@ -125,15 +125,21 @@
 		
 		<script type="text/javascript">
 			if (window.innerHeight >= 684) {
-				$('head').append('<script src="https://cdn.jsdelivr.net/npm/packery/dist/packery.pkgd.min.js"><\/script>');
-				$(window).on('load', function() {
-					$('main').packery({
+				$('head').append('<script src="https://cdn.jsdelivr.net/npm/masonry-layout/dist/masonry.pkgd.min.js"><\/script>');
+				$('head script').eq(-1).on('load', function() {
+					$('main').masonry({
 						itemSelector: 'article',
 						columnWidth: 288,
 						gutter: 32
 					});
 				});
 			}
+			$('article figure img').on('load', function() {
+				$(this).removeClass('off');
+				if ($('article figure img.off').length == 0) {
+					$('main').masonry('layout');
+				}
+			});
 		</script>
 		
 		<footer>
@@ -149,14 +155,26 @@
 
 	
 	<script type="text/javascript">
-		$(window).on('pageshow', function() {
+
+		$(function() {
 			$('[data-load]').each(function(i) {
 				var load = $(this);
 				setTimeout(function() {
 					load.removeAttr('data-load');
 				}, 50 * i);
 			});
+		})
+		$(window).on('pageshow', function() {
+			if ($('[data-load]').length) {
+				$('[data-load]').each(function(i) {
+					var load = $(this);
+					setTimeout(function() {
+						load.removeAttr('data-load');
+					}, 50 * i);
+				});
+			}
 		});
+
 		$('a:not([target])').on('click', function(e) {
 			e.preventDefault();
 			let href = $(this).attr('href');

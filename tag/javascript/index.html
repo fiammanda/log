@@ -57,7 +57,7 @@
 			
 			<article class="post" data-load>
 				<figure>
-					<a href="/log/post/leancloud-like-for-static-site"><img src="https://pic.downk.cc/item/5e97d532c2a9a83be5344c6c.jpg"></a>
+					<a href="/log/post/leancloud-like-for-static-site"><img class="off" src="https://pic.downk.cc/item/5e97d532c2a9a83be5344c6c.jpg"></a>
 				</figure>
 				<div class="post-wrap">
 					<h1>基于 LeanCloud 的静态页面点击 / 点赞统计</h1>
@@ -88,7 +88,7 @@
 			
 			<article class="post" data-load>
 				<figure>
-					<a href="/log/post/mobile-safari-resource-limit"><img src="https://pic.downk.cc/item/5e97cc4bc2a9a83be52f7eed.jpg"></a>
+					<a href="/log/post/mobile-safari-resource-limit"><img class="off" src="https://pic.downk.cc/item/5e97cc4bc2a9a83be52f7eed.jpg"></a>
 				</figure>
 				<div class="post-wrap">
 					<h1>Mobile Safari 资源限制</h1>
@@ -130,15 +130,21 @@ window.timeout(function() {
 		
 		<script type="text/javascript">
 			if (window.innerHeight >= 684) {
-				$('head').append('<script src="https://cdn.jsdelivr.net/npm/packery/dist/packery.pkgd.min.js"><\/script>');
-				$(window).on('load', function() {
-					$('main').packery({
+				$('head').append('<script src="https://cdn.jsdelivr.net/npm/masonry-layout/dist/masonry.pkgd.min.js"><\/script>');
+				$('head script').eq(-1).on('load', function() {
+					$('main').masonry({
 						itemSelector: 'article',
 						columnWidth: 288,
 						gutter: 32
 					});
 				});
 			}
+			$('article figure img').on('load', function() {
+				$(this).removeClass('off');
+				if ($('article figure img.off').length == 0) {
+					$('main').masonry('layout');
+				}
+			});
 		</script>
 		
 		<footer>
@@ -154,14 +160,26 @@ window.timeout(function() {
 
 	
 	<script type="text/javascript">
-		$(window).on('pageshow', function() {
+
+		$(function() {
 			$('[data-load]').each(function(i) {
 				var load = $(this);
 				setTimeout(function() {
 					load.removeAttr('data-load');
 				}, 50 * i);
 			});
+		})
+		$(window).on('pageshow', function() {
+			if ($('[data-load]').length) {
+				$('[data-load]').each(function(i) {
+					var load = $(this);
+					setTimeout(function() {
+						load.removeAttr('data-load');
+					}, 50 * i);
+				});
+			}
 		});
+
 		$('a:not([target])').on('click', function(e) {
 			e.preventDefault();
 			let href = $(this).attr('href');
