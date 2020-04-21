@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fiammanda.github.io/log/</id>
     <title>Log</title>
-    <updated>2020-04-20T15:51:17.807Z</updated>
+    <updated>2020-04-21T02:57:24.127Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fiammanda.github.io/log/"/>
     <link rel="self" href="https://fiammanda.github.io/log/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://fiammanda.github.io/log/favicon.ico</icon>
     <rights>All rights reserved 2020, Log</rights>
     <entry>
-        <title type="html"><![CDATA[想用 WebP，狗逼苹果还在墨迹]]></title>
+        <title type="html"><![CDATA[想用 WebP]]></title>
         <id>https://fiammanda.github.io/log/post/photoshop-webp-plugin/</id>
         <link href="https://fiammanda.github.io/log/post/photoshop-webp-plugin/">
         </link>

@@ -288,7 +288,7 @@ tbody tr:nth-child(2n) {
 }
 .layout-index .wrap header {
   display: block;
-  padding: 50% 0 0;
+  padding: 75% 0 0;
   height: 100%;
   text-align: center;
 }
@@ -298,23 +298,24 @@ tbody tr:nth-child(2n) {
   height: 4rem;
 }
 .layout-index .wrap header h1 {
-  margin: 1rem 0;
+  margin: 1rem 0 2.5rem;
   font-size: 2rem;
 }
+.layout-index .wrap header h1::before {
+  content: "- ";
+}
+.layout-index .wrap header h1::after {
+  content: " -";
+}
 .layout-index .wrap header p {
-  margin: 0;
-  font-size: 1.125rem;
-  font-family: "Lobster Two", sans-serif;
+  margin: 0.5rem 0;
+  font-family: "Source Han Sans SC", "Noto Sans CJK SC", "HanHei SC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 .layout-index .wrap header nav {
   margin: 2rem 0 0;
 }
 .layout-index .wrap header nav div {
   margin: 0 1rem;
-}
-.layout-index .wrap main section {
-  margin: 0 0 10rem;
-  font-family: "Roboto", "Source Han Sans SC", "Noto Sans CJK SC", "HanHei SC", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 .layout-index .wrap footer {
   text-align: center;
@@ -820,6 +821,9 @@ aside[data-load] {
   }
 }
 @media only screen and (max-width: 38rem) {
+  .wrap header nav div {
+    margin: 0 0 0 1rem;
+  }
   .layout-archive .wrap main article {
     margin: 0 0 1.25rem 0;
     width: 100%;
